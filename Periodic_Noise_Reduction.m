@@ -32,4 +32,14 @@ PN = a*255*(sin(1.8*x+1.8*y)+sin(x+y)+sin(2.2*x+2.2*y)+...
 % Add noise to main image
 Noisy_IMG = IMG + PN;
 
+%% Display Images
+
+figure(1)
+subplot(1,2,1);
+imshow(abs(IMG)/max(max(abs(IMG)))*255);
+title('Main Image FFT');
+subplot(1,2,2);
+imshow(abs(Noisy_IMG)/max(max(abs(Noisy_IMG)))*255);
+title('Noisy Image FFT');
+
 
