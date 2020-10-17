@@ -18,3 +18,18 @@ for i = 1:size(U,1)
 end
 IMG = IMG.*U;
 
+%% Add Periodic Noise to image
+
+[M,N] = size(IMG);
+[x,y] = meshgrid(1:M,1:N);
+
+a = 0.7;
+
+% Create Periodic Noise
+PN = a*255*(sin(1.8*x+1.8*y)+sin(x+y)+sin(2.2*x+2.2*y)+...
+     sin(1.8*x-1.8*y)+sin(x-y)+sin(20.2*x-20.2*y));
+
+% Add noise to main image
+Noisy_IMG = IMG + PN;
+
+
